@@ -36,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: loeken/home-assistant:2022.11.4,loeken/home-assistant:latest
+          tags: loeken/jellyseerr:1.2.1-alpine,loeken/jellyseerr:latest
           context: ./ha
           no-cache: true
       - name: Run Snyk to check Docker image for vulnerabilities
@@ -44,11 +44,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          image: loeken/home-assistant:2022.11.4
+          image: loeken/jellyseerr:1.2.1-alpine
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: loeken/home-assistant:2022.11.4
+          image-ref: loeken/jellyseerr:1.2.1-alpine
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
