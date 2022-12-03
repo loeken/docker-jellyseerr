@@ -38,7 +38,7 @@ jobs:
           push: true
           tags: loeken/jellyseerr:1.2.1-alpine,loeken/jellyseerr:latest
           context: ./jellyseerr
-          no-cache: true
+          no-cache: false
       - name: Run Snyk to check Docker image for vulnerabilities
         uses: snyk/actions/docker@master
         env:
