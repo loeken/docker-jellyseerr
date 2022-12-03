@@ -36,9 +36,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: loeken/jellyseerr:1.2.1-alpine,loeken/jellyseerr:latest
+          tags: loeken/jellyseerr:1.2.1-alpine
           context: ./jellyseerr
-          no-cache: false
+          no-cache: false      
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       - name: Run Snyk to check Docker image for vulnerabilities
         uses: snyk/actions/docker@master
         env:
