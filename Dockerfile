@@ -30,7 +30,7 @@ RUN rm -rf src server .next/cache
 
 RUN touch config/DOCKER
 
-RUN echo "{\"commitTag\": \"${COMMIT_TAG}\"}" > committag.json
+RUN echo "{\"commitTag\": \"main\"}" > committag.json
 
 
 FROM node:18.12-alpine3.16
