@@ -24,12 +24,6 @@ jobs:
         with:
           repository: loeken/docker-jellyseerr
           path: docker-jellyseerr
-      - name: ls
-        run: cp docker-jellyseerr/Dockerfile jellyseerr/Dockerfile
-      - name: ls
-        run: cp docker-jellyseerr/package.json jellyseerr/package.json
-      - name: ls
-        run: cp docker-jellyseerr/yarn.lock jellyseerr/yarn.lock
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
