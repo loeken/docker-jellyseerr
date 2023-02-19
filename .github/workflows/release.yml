@@ -28,7 +28,7 @@ jobs:
           path: docker-jellyseerr
 
       - name: patch Dockerfile
-        run: cp docker-jf/Dockerfile jf/Dockerfile
+        run: cp docker-jellyseerr/Dockerfile jellyseerr/Dockerfile
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
