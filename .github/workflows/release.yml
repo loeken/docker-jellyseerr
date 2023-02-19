@@ -27,6 +27,8 @@ jobs:
           repository: loeken/docker-jellyseerr
           path: docker-jellyseerr
 
+      - name: patch Dockerfile
+        run: cp docker-jf/Dockerfile jf/Dockerfile
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -54,6 +56,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: loeken/jellyseerr:${{ env.version }}
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
