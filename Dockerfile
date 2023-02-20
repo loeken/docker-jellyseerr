@@ -45,4 +45,7 @@ COPY --from=BUILD_IMAGE /app ./
 ENTRYPOINT [ "/sbin/tini", "--" ]
 CMD [ "yarn", "start" ]
 
+
+RUN npm install -g npm
+
 EXPOSE 5055
