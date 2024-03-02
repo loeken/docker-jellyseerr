@@ -1,4 +1,4 @@
-FROM node:18.14-alpine3.17 AS BUILD_IMAGE
+FROM node:iron-alpine3.19 AS BUILD_IMAGE
 
 WORKDIR /app
 
