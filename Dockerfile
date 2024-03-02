@@ -33,7 +33,7 @@ RUN touch config/DOCKER
 RUN echo "{\"commitTag\": \"main\"}" > committag.json
 
 
-FROM node:18.14-alpine3.17
+FROM node:iron-alpine3.19
 
 WORKDIR /app
 
