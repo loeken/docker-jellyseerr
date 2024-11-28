@@ -1,4 +1,4 @@
-FROM node:iron-alpine3.19 AS BUILD_IMAGE
+FROM node:iron-alpine3.19 AS build_image
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN \
   ;; \
   esac
 
-COPY package.json yarn.lock ./
+#COPY package.json yarn.lock ./
 RUN CYPRESS_INSTALL_BINARY=0 yarn install --network-timeout 1000000
 
 COPY . ./
@@ -40,7 +40,7 @@ WORKDIR /app
 RUN apk add --no-cache tzdata tini && rm -rf /tmp/*
 
 # copy from build image
-COPY --from=BUILD_IMAGE /app ./
+COPY --from=build_image /app ./
 
 ENTRYPOINT [ "/sbin/tini", "--" ]
 CMD [ "yarn", "start" ]
