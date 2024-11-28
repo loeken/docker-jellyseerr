@@ -21,6 +21,7 @@ COPY . ./
 ARG COMMIT_TAG
 ENV COMMIT_TAG=${COMMIT_TAG}
 
+RUN npm install -g pnpm
 RUN yarn build
 
 # remove development dependencies
@@ -46,6 +47,5 @@ ENTRYPOINT [ "/sbin/tini", "--" ]
 CMD [ "yarn", "start" ]
 
 
-RUN npm install -g npm
 
 EXPOSE 5055
