@@ -21,11 +21,12 @@ COPY . ./
 ARG COMMIT_TAG
 ENV COMMIT_TAG=${COMMIT_TAG}
 
-RUN npm install -g pnpm
-RUN yarn build
-
 # remove development dependencies
 RUN yarn install --production --ignore-scripts --prefer-offline
+
+
+RUN yarn build
+
 
 RUN rm -rf src server .next/cache
 
