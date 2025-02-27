@@ -16,11 +16,10 @@ RUN \
 # Ensure we use PNPM instead of Yarn
 RUN npm install -g pnpm@9
 
+COPY jellyseerr/package.json jellyseerr/pnpm-lock.yaml ./
+
 # Install all dependencies (including devDependencies)
 RUN pnpm install --frozen-lockfile
-
-# Ensure type definitions exist
-RUN pnpm add -D @types/lodash
 
 COPY . ./
 
