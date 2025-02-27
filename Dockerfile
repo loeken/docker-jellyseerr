@@ -16,7 +16,7 @@ RUN \
 # Ensure we use PNPM instead of Yarn
 RUN npm install -g pnpm@9
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml postinstall-win.js ./
 
 # Install all dependencies (including devDependencies)
 RUN pnpm install --frozen-lockfile
