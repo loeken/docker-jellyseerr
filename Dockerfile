@@ -43,6 +43,9 @@ WORKDIR /app
 
 RUN apk add --no-cache tzdata tini && rm -rf /tmp/*
 
+# Ensure PNPM is available in the runtime image
+RUN npm install -g pnpm@9
+
 # Copy from build image
 COPY --from=build_image /app ./
 
