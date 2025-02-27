@@ -1,4 +1,4 @@
-{
+"newConfig": {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "prConcurrentLimit": 0,
   "branchConcurrentLimit": 0,
@@ -6,6 +6,7 @@
   "pinDigests": true,
   "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": [".github/workflows/release.yml"],
       "matchStrings": [
         "tags:\\s*loeken/jellyseerr:(?<version>[\\d\\.]+)",
@@ -16,4 +17,3 @@
       "versioningTemplate": "semver"
     }
   ]
-}
