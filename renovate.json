@@ -3,19 +3,17 @@
   "prConcurrentLimit": 0,
   "branchConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "packageRules": [
+  "pinDigests": true,
+  "customManagers": [
     {
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["Fallenbagel/jellyseerr"],
-      "versioning": "semver",
-      "groupName": "jellyseerr",
       "fileMatch": [".github/workflows/release.yml"],
       "matchStrings": [
-        "tags:\\s*loeken/jellyseerr:(?<currentValue>[\\d\\.]+)",
-        "COMMIT_TAG=(?<currentValue>[\\d\\.]+)"
+        "tags:\\s*loeken/jellyseerr:(?<version>[\\d\\.]+)",
+        "COMMIT_TAG=(?<version>[\\d\\.]+)"
       ],
-      "replaceStringTemplate": "tags: loeken/jellyseerr:{{newValue}}\n            COMMIT_TAG={{newValue}}"
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "Fallenbagel/jellyseerr",
+      "versioningTemplate": "semver"
     }
-  ],
-  "pinDigests": true
+  ]
 }
