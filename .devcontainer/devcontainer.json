@@ -1,0 +1,14 @@
+{
+    "name": "docker-jellyseerr",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "docker-jellyseerr",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "oderwat.indent-rainbow",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}

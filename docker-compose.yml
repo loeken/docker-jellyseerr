@@ -1,0 +1,18 @@
+services:
+  docker-jellyseerr:
+    container_name: docker-jellyseerr
+    build:
+      context: .
+      dockerfile: ./deploy/docker/Dockerfile.dev
+    restart: "no"
+    env_file: .env
+    networks:
+      - docker-jellyseerr-network
+    volumes:
+      - ${HOME}/.config/gh:/home/vscode/.config/gh
+      - ${HOME}/.ssh:/home/vscode/.ssh
+      - ${HOME}/.zhistory:/home/vscode/.zhistory
+# Networks to be created to facilitate communication between containers
+networks:
+  docker-jellyseerr-network:
+    driver: bridge

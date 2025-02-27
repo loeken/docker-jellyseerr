@@ -12,12 +12,7 @@ jobs:
         with:
           node-version: '20'
       - run: npm help
-      - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: Test
-        run: |
-          echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}
+
       - name: Check out my other private repo
         uses: actions/checkout@master
         with:
@@ -41,23 +36,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Get version number
-        run: |
-          ls -la
-          VERSION=$(cat docker-jellyseerr/version.yaml | grep 'version' | cut -d ' ' -f4)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-      - name: Use version number in next step
-        run: |
-          echo $VERSION 
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: loeken/jellyseerr:${{ env.VERSION }}
+          tags: loeken/jellyseerr:2.0.0
           context: ./jellyseerr
           no-cache: false      
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            COMMIT_TAG=${{ env.RELEASE_VERSION }}
+            COMMIT_TAG=2.0.0
 

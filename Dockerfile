@@ -23,7 +23,7 @@ ENV COMMIT_TAG=${COMMIT_TAG}
 
 # remove development dependencies
 RUN yarn install --production --ignore-scripts --prefer-offline
-RUN npm install -g pnpm
+RUN npm install -g p
 
 RUN yarn build
 
