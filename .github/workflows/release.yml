@@ -44,7 +44,7 @@ jobs:
         with:
           push: true
           tags: loeken/jellyseerr:2.3.0
-          context: ./
+          context: ./jellyseerr
           no-cache: false      
           cache-from: type=gha
           cache-to: type=gha,mode=max
