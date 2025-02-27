@@ -1,4 +1,4 @@
-"newConfig": {
+{
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "prConcurrentLimit": 0,
   "branchConcurrentLimit": 0,
@@ -17,3 +17,4 @@
       "versioningTemplate": "semver"
     }
   ]
+}
