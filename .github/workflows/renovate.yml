@@ -24,4 +24,4 @@ jobs:
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
           LOG_LEVEL: debug
-        run: renovate loeken/docker-jellyfin
+        run: renovate loeken/docker-jellyseerr
