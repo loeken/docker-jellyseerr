@@ -8,7 +8,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4
+      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
         with:
           node-version: '20'
       - name: Check out my other private repo
@@ -25,11 +25,11 @@ jobs:
       - name: patch Dockerfile
         run: cp docker-jellyseerr/Dockerfile jellyseerr/Dockerfile
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@5964de0df58d5ad28b04d8fe2e6b80ad47105b91 # v3
+        uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3
       - name: Login to Docker Hub
-        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -42,11 +42,11 @@ jobs:
         uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6
         with:
           push: true
-          tags: loeken/jellyseerr:2.3.0
+          tags: loeken/jellyseerr:2.5.1
           context: ./jellyseerr
           no-cache: false      
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            COMMIT_TAG=2.3.0
+            COMMIT_TAG=2.5.1
 
