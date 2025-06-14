@@ -16,5 +16,11 @@
       "packageNameTemplate": "Fallenbagel/jellyseerr",
       "versioningTemplate": "semver"
     }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["Fallenbagel/jellyseerr"],
+      "automerge": true
+    }
   ]
 }
