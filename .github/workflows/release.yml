@@ -42,11 +42,11 @@ jobs:
         uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6
         with:
           push: true
-          tags: loeken/jellyseerr:2.7.0
+          tags: loeken/jellyseerr:2.7.1
           context: ./jellyseerr
           no-cache: false      
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            COMMIT_TAG=2.7.0
+            COMMIT_TAG=2.7.1
 
