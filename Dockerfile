@@ -1,4 +1,4 @@
-FROM node:jod-alpine@sha256:41e4389f3d988d2ed55392df4db1420ad048ae53324a8e2b7c6d19508288107e AS build_image
+FROM node:jod-alpine@sha256:5539840ce9d013fa13e3b9814c9353024be7ac75aca5db6d039504a56c04ea59 AS build_image
 
 WORKDIR /app
 
@@ -37,7 +37,7 @@ RUN touch config/DOCKER
 RUN echo "{\"commitTag\": \"${COMMIT_TAG}\"}" > committag.json
 
 
-FROM node:jod-alpine@sha256:41e4389f3d988d2ed55392df4db1420ad048ae53324a8e2b7c6d19508288107e
+FROM node:jod-alpine@sha256:5539840ce9d013fa13e3b9814c9353024be7ac75aca5db6d039504a56c04ea59
 
 WORKDIR /app
 
