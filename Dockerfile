@@ -16,12 +16,10 @@ RUN \
 # Ensure we use PNPM instead of Yarn
 RUN npm install -g pnpm@10
 
-COPY package.json pnpm-lock.yaml postinstall-win.js ./
+COPY . ./
 
 # Install all dependencies (including devDependencies)
 RUN pnpm install --frozen-lockfile
-
-COPY . ./
 
 ARG COMMIT_TAG
 ENV COMMIT_TAG=${COMMIT_TAG}
